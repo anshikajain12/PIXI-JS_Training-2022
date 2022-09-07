@@ -14,10 +14,15 @@
 }
 #barContainer{
     position: absolute;
-    height: 10%;
-    width: 80%;
-    background-color: darkgray;
+    height: 50px;
+    width: 200px;
+    bottom: 10%;
+    left: 50%;
+    margin-left: -200px;
+    color: white;
 }
 #bar{
-    
+    width: 0;
+    height: 5%;
+    background-color: green;
 }
