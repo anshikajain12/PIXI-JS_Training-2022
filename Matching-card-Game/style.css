@@ -1,7 +1,8 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
-}
+} */
+
 #loader{
     background-color: black;
     width: 100%;
@@ -25,4 +26,9 @@
     width: 0;
     height: 5%;
     background-color: green;
+}
+#game{
+    display: flex;
+    justify-content: center;
+    margin: auto;
 }

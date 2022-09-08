@@ -1,5 +1,5 @@
 const game = new PIXI.Application({
-  width: 800,
+  width: 1350,
   height: 600,
   backgroundColor: 0x3366ff,
 });
@@ -35,29 +35,92 @@ function loadAssets(list, onLoadComplete) {
 ////---------------------------------
 
 function start(loader, resources) {
-  console.log("params", arguments);
-  const back = PIXI.Sprite.from(resources["back"].texture);
-  back.scale.set(0.2);
-  game.stage.addChild(back);
-  for (let i = 0; i < 10; i++) {
-    for (let j = 0; j < 2; j++) {
-      const smily = new PIXI.Texture(
-        resources["front"].texture,
-        new PIXI.Rectangle(4, 8, 54, 67)
-        );
-        const front = PIXI.Sprite.from(smily);
-        game.stage.addChild(front);
-    }
-  }
-  // front.scale.set(0.2);
-  const smily1 = new PIXI.Texture(
-    resources["front"].texture,
-    new PIXI.Rectangle(54, 6, 54, 67)
-  );
-  const front1 = PIXI.Sprite.from(smily1);
-  // front.scale.set(0.2);
-  front1.x = 120;
-  front1.y = 0;
+  // for (let i = 0; i < 10; i++) {
+    
 
-  game.stage.addChild(front1);
+  //       console.log("params", arguments);
+  //       const back = PIXI.Sprite.from(resources["back"].texture);
+  //       back.scale.set(0.2);
+  //       game.stage.addChild(back);
+        
+  //       back.x=120*i;
+  //       back.y=20;
+  //       const smily = new PIXI.Texture(
+  //               resources["front"].texture,
+  //               new PIXI.Rectangle(4, 5, 54, 67)
+  //               );
+  //               const front = PIXI.Sprite.from(smily);
+  //               game.stage.addChild(front);
+  //               front.x = 120*i;
+  //               front.y = 20;
+  //               front.width=115;
+  //               front.height=160;
+       
+        
+      
+   
+  // }
+
+  for (let i = 0; i < 10; i++) {
+    for(let j=0;j<2;j++){
+
+        console.log("params", arguments);
+        const back = PIXI.Sprite.from(resources["back"].texture);
+        back.scale.set(0.2);
+        game.stage.addChild(back);
+        back.x=120*i;
+        back.y=20;
+        const smily = new PIXI.Texture(
+                  resources["front"].texture,
+                  new PIXI.Rectangle(3, 4, 54, 67)
+                  );
+                  const front = PIXI.Sprite.from(smily);
+          game.stage.addChild(front);
+          front.x = 120*i;
+          front.y = 20;
+          front.width=115;
+          front.height=160;
+        const smily1 = new PIXI.Texture(
+                  resources["front"].texture,
+                  new PIXI.Rectangle(3, 4, 70, 126)
+                  );
+                  const front1 = PIXI.Sprite.from(smily);
+                  front1.x = 120*i;
+                  front1.y = 20*j;
+                  front1.width=115;
+                  front1.height=160;
+          game.stage.addChild(front1);
+          
+        }
+   
+  }
+
+
+
+
+  // for (let i = 0; i < 2; i++) {
+  //   for (let j = 0; j < 5; j++) {
+  //     const smily = new PIXI.Texture(
+  //       resources["front"].texture,
+  //       new PIXI.Rectangle(4, 8, 54, 67)
+  //       );
+  //       const front = PIXI.Sprite.from(smily);
+  //       game.stage.addChild(front);
+  //       front.x = 120*i;
+  //       front.y = 0;
+
+        
+  //   }
+  // }
+  // front.scale.set(0.2);
+  // const smily1 = new PIXI.Texture(
+  //   resources["front"].texture,
+  //   new PIXI.Rectangle(54, 6, 54, 67)
+  // );
+  // const front1 = PIXI.Sprite.from(smily1);
+  // front.scale.set(0.2);
+  // front1.x = 120;
+  // front1.y = 0;
+
+  // game.stage.addChild(front1);
 }
