@@ -55,11 +55,8 @@ function start(loader, resources) {
   //               front.y = 20;
   //               front.width=115;
   //               front.height=160;
-       
-        
-      
-   
   // }
+
 
   for (let i = 0; i < 10; i++) {
     for(let j=0;j<2;j++){
@@ -70,29 +67,15 @@ function start(loader, resources) {
         game.stage.addChild(back);
         back.x=120*i;
         back.y=20;
-        const smily = new PIXI.Texture(
-                  resources["front"].texture,
-                  new PIXI.Rectangle(3, 4, 54, 67)
-                  );
-                  const front = PIXI.Sprite.from(smily);
-          game.stage.addChild(front);
-          front.x = 120*i;
-          front.y = 20;
-          front.width=115;
-          front.height=160;
-        const smily1 = new PIXI.Texture(
-                  resources["front"].texture,
-                  new PIXI.Rectangle(3, 4, 70, 126)
-                  );
-                  const front1 = PIXI.Sprite.from(smily);
-                  front1.x = 120*i;
-                  front1.y = 20*j;
-                  front1.width=115;
-                  front1.height=160;
-          game.stage.addChild(front1);
-          
-        }
-   
+        const smily = new PIXI.Texture(resources["front"].texture,new PIXI.Rectangle(3, 4, 54, 67));
+        const front = PIXI.Sprite.from(smily);
+        game.stage.addChild(front);
+        front.x = 120*i;
+        front.y = 20;
+        front.width=115;
+        front.height=160;
+        
+    }
   }
 
 
