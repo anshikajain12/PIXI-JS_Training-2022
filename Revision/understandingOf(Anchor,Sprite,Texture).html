@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.2/browser/pixi.js" integrity="sha512-XHX32YCocEDCIiENmO7pf91TtRITLfCagN+uLlj9sJ7RUVBHN1JZtlfb02x4OyXfkuQegd1u6i9mzpRMg+w5xw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style>
+            canvas{
+                display: flex;
+                
+            }
+        </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+    
+    <!-- <script src="front.mjs" ></script> -->
+
+    <script>
+        const canvas = document.getElementById('canvas');
+const app = new PIXI.Application({
+    view:canvas,
+    width:window.innerWidth,
+    height:window.innerHeight
+});
+
+//Texture is used for images and part of images
+//A texture stores the information that represents an image or part of an image.
+const texture= PIXI.Texture.from('assets/button.png');
+
+//Sprite is a object which is used for texture object to render on screen 
+const sprite= new PIXI.Sprite(texture);
+sprite.x= app.renderer.width/2;
+sprite.y= app.renderer.height/2;
+// anchor is used to set the origin of the sprite and value of anchor between 0 to 1
+// 0,0 means: top left //0.5,0.5 means center 
+// 1,1 means bottom right
+
+// sprite.anchor.x=0.5;
+// sprite.anchor.y=0.5;
+sprite.anchor.set(0.5);
+app.stage.addChild(sprite);
+
+//ANIMATION FUNCTION
+// app.ticker.add(animate);
+
+// function animate(){
+//     sprite.rotation+= 0.1;
+// }
+    </script>
+</body>
+</html>
