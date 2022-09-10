@@ -24,16 +24,26 @@
     <script>
         const canvas = document.getElementById('canvas');
 
+        let w=window.innerWidth;
+        let h= window.innerHeight;
+
         // The Renderer draws the scene and all its content onto a WebGL enabled canvas.
         // This renderer should be used for browsers that support WebGL.
         const renderer = new PIXI.Renderer({
             view: canvas,
-            width: window.innerWidth,
-            height: window.innerHeight,
-            // backgroundColor:0x3344FF
+            width:  w,
+            height: h,
             resolution: window.devicePixelRatio,
             autoDensity: true
         });
+
+
+        window.addEventListener('resize',resize);
+        function resize(){
+            w=window.innerWidth;
+            h= window.innerHeight;
+            renderer.resize(w,h);
+        }
         // Container is a general-purpose display object that holds children. It also adds built-in support for advanced rendering features like masking and filtering.
         const stage = new PIXI.Container();
 
@@ -57,4 +67,4 @@
     </script>
 </body>
 
-</html>
+</html> 
