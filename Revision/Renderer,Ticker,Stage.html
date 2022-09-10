@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Game</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.2/browser/pixi.js"
-        integrity="sha512-XHX32YCocEDCIiENmO7pf91TtRITLfCagN+uLlj9sJ7RUVBHN1JZtlfb02x4OyXfkuQegd1u6i9mzpRMg+w5xw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <style>
-        canvas {
-            display: flex;
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Memory Game</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.2/browser/pixi.js"
+            integrity="sha512-XHX32YCocEDCIiENmO7pf91TtRITLfCagN+uLlj9sJ7RUVBHN1JZtlfb02x4OyXfkuQegd1u6i9mzpRMg+w5xw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+        <style>
+            canvas {
+                display: flex;
+            }
+        </style>
 
-        }
-    </style>
-</head>
+    </head>
 
-<body>
-    <canvas id="canvas"></canvas>
-
-
-    <script>
-        const canvas = document.getElementById('canvas');
-
-        let w=window.innerWidth;
-        let h= window.innerHeight;
-
-        // The Renderer draws the scene and all its content onto a WebGL enabled canvas.
-        // This renderer should be used for browsers that support WebGL.
-        const renderer = new PIXI.Renderer({
-            view: canvas,
-            width:  w,
-            height: h,
-            resolution: window.devicePixelRatio,
-            autoDensity: true
-        });
+    <body>
+        <canvas id="canvas"></canvas>
 
 
-        window.addEventListener('resize',resize);
-        function resize(){
-            w=window.innerWidth;
-            h= window.innerHeight;
-            renderer.resize(w,h);
-        }
-        // Container is a general-purpose display object that holds children. It also adds built-in support for advanced rendering features like masking and filtering.
-        const stage = new PIXI.Container();
+        <script>
+            const canvas = document.getElementById('canvas');
 
-        const texture = PIXI.Texture.from('assets/button.png');
-        const sprite = new PIXI.Sprite(texture);
-        sprite.x = renderer.width / 2;
-        sprite.y = renderer.height / 2;
-        sprite.anchor.set(0.5);
-        stage.addChild(sprite);
+            let w=window.innerWidth;
+            let h= window.innerHeight;
 
-        //ANIMATION FUNCTION
-        const ticker = new PIXI.Ticker();
-        ticker.add(animate);
-        ticker.start();
+            // The Renderer draws the scene and all its content onto a WebGL enabled canvas.
+            // This renderer should be used for browsers that support WebGL.
+            const renderer = new PIXI.Renderer({
+                view: canvas,
+                width:  w,
+                height: h,
+                //it is used for create a responsive website
+                resolution: window.devicePixelRatio,
+                autoDensity: true
+            });
 
 
-        function animate() {
-            sprite.rotation += 0.1;
-            renderer.render(stage);
-        }
-    </script>
-</body>
+            window.addEventListener('resize',resize);
+            function resize(){
+                w=window.innerWidth;
+                h= window.innerHeight;
+                renderer.resize(w,h);
+            }
+            // Container is a general-purpose display object that holds children. It also adds built-in support for advanced rendering features like masking and filtering.
+            const stage = new PIXI.Container();
+
+            const texture = PIXI.Texture.from('assets/button.png');
+            const sprite = new PIXI.Sprite(texture);
+            sprite.x = renderer.width / 2;
+            sprite.y = renderer.height / 2;
+            sprite.anchor.set(0.5);
+            stage.addChild(sprite);
+
+            //ANIMATION FUNCTION
+            const ticker = new PIXI.Ticker();
+            ticker.add(animate);
+            ticker.start();
+
+
+            function animate() {
+                sprite.rotation += 0.01;
+                renderer.render(stage);
+            }
+        </script>
+    </body>
 
 </html> 
