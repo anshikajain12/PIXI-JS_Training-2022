@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.2/browser/pixi.js"
+        integrity="sha512-XHX32YCocEDCIiENmO7pf91TtRITLfCagN+uLlj9sJ7RUVBHN1JZtlfb02x4OyXfkuQegd1u6i9mzpRMg+w5xw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        canvas {
+            display: flex;
+        }
+    </style>
+
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const app = new PIXI.Application({
+            view: canvas,
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+        // const texture = PIXI.Texture.from('assets/button1.png');
+
+        // const img = new PIXI.Sprite(texture);
+        // img.x = app.renderer.width / 2;
+        // img.y = app.renderer.height / 2;
+
+        // img.anchor.set(0.5);
+        // app.stage.addChild(img);
+
+        let graphic = new PIXI.Graphics();
+        graphic.x = app.renderer.width / 2;
+        graphic.y = app.renderer.height / 2;
+        app.stage.addChild(graphic);
+        graphic.lineStyle(2, 0x00ff00);
+        graphic.beginFill(0xff0000);
+        // graphic.drawCircle(0,0,100);
+        // graphic.drawRect(120,0,100,100);
+        // graphic.drawStar(0,0,5,100,40);
+        // graphic.closePath();
+
+        //OR 
+
+        // graphic.drawShape(new PIXI.Circle(0,0,100));
+
+
+        // graphic.drawPolygon([new PIXI.Point(100,100), new PIXI.Point(100,200),new PIXI.Point(200,100)])
+        //    graphic.moveTo(0,0);
+        //    graphic.lineTo(100,100);
+        //    graphic.lineTo(100,200);
+        //    graphic.lineTo(0,200);
+        //    graphic.bezierCurveTo(-200,200,-200,100,-100,0);
+        //    graphic.quadraticCurveTo(-200,-100,0,-200);
+        //    graphic.arc(0,0,50,0,0.9);
+        let radius = 50;
+        graphic.arc(0, 0, radius, 0, Math.PI * 2);
+        graphic.endFill();
+
+
+        app.ticker.add(animate);
+        let delta = 0;
+        function animate() {
+            // img.rotation+=0.02;
+            delta+=0.1;
+            radius = 50 + Math.sin(delta) * 25;
+            graphic.clear();
+            graphic.beginFill(0xff0000);
+            graphic.arc(0, 0, radius, 0, Math.PI * 2);
+            graphic.endFill();
+        }
+    </script>
+</body>
+
+</html>
