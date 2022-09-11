@@ -29,20 +29,49 @@
             width: window.innerWidth,
             height: window.innerHeight,
         });
-       
-        const texture = PIXI.Texture.from('assets/button1.png');
-        const img = new PIXI.Sprite(texture);
-        img.x = app.renderer.width / 2;
-        img.y = app.renderer.height / 2;
-        img.anchor.set(0.5);
+        console.log(PIXI.utils.TextureCache);
+        let loader = PIXI.Loader.shared;
+        loader.add("guy", "assets/images.json");
+        loader.add("bg", "assets/sprites.png");
+        loader.onProgress.add(handleProgress);
+        loader.onLoad.add(handleAssets);
+        loader.onError.add(handleError);
+        loader.load(handleComplete);
 
-       
-        app.stage.addChild(img);
 
-        app.ticker.add(animate);
-        
+        let img;
+        function handleComplete() {
+            // let texture = loader.resources.guy.spritesheet;
+            // img = new PIXI.AnimatedSprite(texture.animations.pixels_large);
+            // img.anchor.set(0.5);
+            // app.stage.addChild(img);
+
+            // img.animationSpeed=0.1;
+            // img.play()
+            // app.ticker.add(animate);
+
+            // setTimeout(() => {
+            //     img.texture = loader.resources.bg.texture
+            // }, 2000);
+        }
+
         function animate() {
-           
+            img.x = app.renderer.screen.width / 2;
+            img.y = app.renderer.screen.height / 2;
+            img.rotation += 0.01;
+        }
+
+
+        function handleAssets(loaded, resource) {
+            console.log("Assets loaded " + resource.name)
+        }
+
+        function handleProgress(loader, resource) {
+            console.log(loader.progress + "%");
+        }
+
+        function handleError() {
+            console.log("Load error")
         }
     </script>
 </body>
