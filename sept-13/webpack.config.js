@@ -12,6 +12,7 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 const config = {
   entry: "./src/index.ts",
   output: {
+    clean: true,
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
@@ -22,13 +23,13 @@ const config = {
     new HtmlWebpackPlugin({
       template: "index.html",
     }),
+
     new MiniCssExtractPlugin(),
     new CopyPlugin({
       patterns: [
         { from: "src/assets", to: "assets" }
       ],
     }),
-
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
