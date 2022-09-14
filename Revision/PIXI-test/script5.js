@@ -9,7 +9,7 @@ let sprite = new PIXI.Sprite.from('toy.png');
 sprite.anchor.set(0.5);
 sprite.x=app.screen.width/2;
 sprite.y=app.screen.height/2;
-sprite.width=200;
+sprite.width=250;
 sprite.height=200;
 
 sprite.interactive=true;
