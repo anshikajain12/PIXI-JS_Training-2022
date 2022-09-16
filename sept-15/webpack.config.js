@@ -18,6 +18,7 @@ const config = {
   devServer: {
     open: true,
     host: "localhost",
+    compress: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -61,10 +62,13 @@ const config = {
 module.exports = () => {
   if (isProduction) {
     config.mode = "production";
-
+    config.optimization = {
+      minimize: true,
+    };
     config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
   } else {
     config.mode = "development";
+    config.devtool = "inline-source-map";
   }
   return config;
 };
