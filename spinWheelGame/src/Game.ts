@@ -7,7 +7,8 @@ export class Game extends Application {
     constructor(opts: any) {
         super(opts);
         this.preload([
-            { name:"wheel",url:"assets/wheelofspine-removebg-preview.png"},
+            // { name:"wheel",url:"assets/wheelofspine-removebg-preview.png"},
+            { name:"wheel",url:"assets/wheelofspine.png"},
             { name:"arrow",url:"assets/arrow.png"}
         ], this.onLoad.bind(this));
     }
@@ -16,7 +17,8 @@ export class Game extends Application {
         this.loader.load(cb);
     }
     winnerpage(ran:number):void{
-        let arr=[12,11,10,9,8,7,6,5,4,3,2,1];
+        // let arr=[12,11,10,9,8,7,6,5,4,3,2,1];
+        let arr=[50,1500,1000,700,500,400,350,300,250,200,150,100];
         let text = new Text(`Congratulation , you have won ${arr[ran]}$ from this lucky wheel\n `);
         text.anchor.set(0.5);
         text.x= this.screen.width/2;
