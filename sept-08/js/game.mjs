@@ -20,11 +20,14 @@ export function start(app) {
     } else {
       stage.interactiveChildren = false;
       secondChoice = cards.filter((v) => v.isOpen());
+      console.log("second",secondChoice);
       if (secondChoice[0].id === secondChoice[1].id) {
+        console.log("matched");
         setTimeout(() => {
           stage.removeChild(secondChoice[0].view);
           stage.removeChild(secondChoice[1].view);
           cards = cards.filter((c) => !c.isOpen());
+          console.log(cards);
           if (cards.length === 0) {
             let finalMessage = new Text('You cleared all cards in ##:##\nClick To Continue.');
             finalMessage.anchor.set(0.5);
@@ -37,6 +40,7 @@ export function start(app) {
           stage.interactiveChildren = true;
         }, 1000);
       } else {
+        console.log("card not matched");
         setTimeout(()=>{
         cards.forEach((c) => {
           c.reset();
