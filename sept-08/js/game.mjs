@@ -10,6 +10,7 @@ export function start(app) {
   cards = drawCards(stage);
   stage.interactive = true;
   stage.on("pointerup", () => {
+    console.log(cards.length);
     if(cards.length == 0){
         stage.removeChildren();
         start(app);

@@ -11,6 +11,7 @@ function preload(e) {
     }, 500);
   }
   console.log(e.progress);
+
 }
 
 function setResources(loader, resList) {
