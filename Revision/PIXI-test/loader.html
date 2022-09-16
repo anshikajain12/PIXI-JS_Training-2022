@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.3/browser/pixi.js"
+      integrity="sha512-7bGcZdDUfAUu6ckSHcxddjAaHnVzNC6tfLG9enQ9iwUbODAsif/tRliERmGCE74sGJAT0mBJRpGxjPZpuFCwLw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+   <style>
+    *{
+        margin: 0;
+    }
+    #loader{
+            position: fixed;
+            background-color: green;
+            height: 3px;
+            width: 20px;
+        }
+   </style>
+</head>
+<body>
+    <div id="loader"></div>
+
+    <script>
+        const app = new PIXI.Application({
+            width:innerWidth,
+            height:innerHeight,
+            backgroundColor:0xffffff
+        });
+        document.body.appendChild(app.view);
+
+        const text = new PIXI.Text("Hello");
+        text.anchor.set(0.5);
+        text.x=innerWidth/2;
+        text.y=innerHeight/2;
+        
+
+        app.stage.addChild(text);
+
+        let load = document.getElementById('loader');
+        app.loader.onProgress.add((e)=>{
+            console.log("loader",e.progress);
+            load.style.width=e.progress+"%";
+        });
+    </script>
+</body>
+</html>
