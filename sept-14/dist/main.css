@@ -1,0 +1,39 @@
+/*!**************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/css/main.css ***!
+  \**************************************************************************************************************/
+*{
+    margin:0;
+    padding: 0;
+}
+#game{
+    width:800px;
+    height:600px;
+}
+#loader{
+    /* background-color: black; */
+    width: 100%;
+    height:100%;
+    position: fixed;
+    top:0;
+    left:0;
+    align-content: center;
+    text-align: center;
+
+}
+#barContainer{
+    position:absolute;
+    height:50px;
+    width:200px;
+    bottom:10%;
+    left:50%;
+    margin-left:-200px;
+    color:white;
+}
+#bar{
+    width:0;
+    height:4px;
+    background-color: green;
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBQUE7SUFDSSxRQUFRO0lBQ1IsVUFBVTtBQUNkO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsWUFBWTtBQUNoQjtBQUNBO0lBQ0ksNkJBQTZCO0lBQzdCLFdBQVc7SUFDWCxXQUFXO0lBQ1gsZUFBZTtJQUNmLEtBQUs7SUFDTCxNQUFNO0lBQ04scUJBQXFCO0lBQ3JCLGtCQUFrQjs7QUFFdEI7QUFDQTtJQUNJLGlCQUFpQjtJQUNqQixXQUFXO0lBQ1gsV0FBVztJQUNYLFVBQVU7SUFDVixRQUFRO0lBQ1Isa0JBQWtCO0lBQ2xCLFdBQVc7QUFDZjtBQUNBO0lBQ0ksT0FBTztJQUNQLFVBQVU7SUFDVix1QkFBdUI7QUFDM0IiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9teS13ZWJwYWNrLXByb2plY3QvLi9zcmMvY3NzL21haW4uY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIip7XG4gICAgbWFyZ2luOjA7XG4gICAgcGFkZGluZzogMDtcbn1cbiNnYW1le1xuICAgIHdpZHRoOjgwMHB4O1xuICAgIGhlaWdodDo2MDBweDtcbn1cbiNsb2FkZXJ7XG4gICAgLyogYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7ICovXG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OjEwMCU7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDowO1xuICAgIGxlZnQ6MDtcbiAgICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuXG59XG4jYmFyQ29udGFpbmVye1xuICAgIHBvc2l0aW9uOmFic29sdXRlO1xuICAgIGhlaWdodDo1MHB4O1xuICAgIHdpZHRoOjIwMHB4O1xuICAgIGJvdHRvbToxMCU7XG4gICAgbGVmdDo1MCU7XG4gICAgbWFyZ2luLWxlZnQ6LTIwMHB4O1xuICAgIGNvbG9yOndoaXRlO1xufVxuI2JhcntcbiAgICB3aWR0aDowO1xuICAgIGhlaWdodDo0cHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogZ3JlZW47XG59XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/

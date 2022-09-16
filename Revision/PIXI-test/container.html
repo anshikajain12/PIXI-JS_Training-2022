@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.3/browser/pixi.js"
+      integrity="sha512-7bGcZdDUfAUu6ckSHcxddjAaHnVzNC6tfLG9enQ9iwUbODAsif/tRliERmGCE74sGJAT0mBJRpGxjPZpuFCwLw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <script>
+        const app = new PIXI.Application({
+            width:800,
+            height:600,
+            // backgroundColor:0xc6c6c6,
+            //for transparent background
+            transparent:true,
+        })
+        document.body.appendChild(app.view);
+
+
+        const container = new PIXI.Container();
+        app.stage.addChild(container);
+
+        const texture= PIXI.Texture.from("toy.png");
+
+        for (let i = 0; i < 25; i++) {
+            const sprite= PIXI.Sprite.from(texture);
+            sprite.anchor.set(0.5);
+            container.addChild(sprite);
+            sprite.x= (i%5)*40;
+            sprite.width= 150;
+            sprite.height= 100;
+            sprite.y= Math.floor(i/5)*40;
+            
+        }
+        container.x= app.screen.width/2;
+        container.y= app.screen.height/2;
+
+
+        container.pivot.x= container.width/2;
+        container.pivot.y= container.height/2;
+
+        app.ticker.add(()=>{
+            container.rotation+=0.01;
+        })
+    </script>
+        
+
+  </body>
+</html>

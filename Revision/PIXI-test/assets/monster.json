@@ -1,0 +1,52 @@
+{"frames": [
+
+{
+	"filename": "toy.png",
+	"frame": {"x":909,"y":0,"w":612,"h":408},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":612,"h":408},
+	"sourceSize": {"w":612,"h":408}
+},
+{
+	"filename": "toy1.png",
+	"frame": {"x":400,"y":0,"w":509,"h":339},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":509,"h":339},
+	"sourceSize": {"w":509,"h":339}
+},
+{
+	"filename": "toy2.png",
+	"frame": {"x":0,"y":600,"w":700,"h":467},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":467},
+	"sourceSize": {"w":700,"h":467}
+},
+{
+	"filename": "toy3.png",
+	"frame": {"x":700,"y":600,"w":896,"h":580},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":896,"h":580},
+	"sourceSize": {"w":896,"h":580}
+},
+{
+	"filename": "toy4.png",
+	"frame": {"x":0,"y":0,"w":400,"h":600},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":600},
+	"sourceSize": {"w":400,"h":600}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "monster.png",
+	"format": "RGBA8888",
+	"size": {"w":1596,"h":1180},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:684b514b18b2bdbb08fd405ab65fea0b:3ccdf7bd9dded9eff4f2f2ac230778dc:6ec6ef82eac74a14701d8066d2bc065f$"
+}
+}

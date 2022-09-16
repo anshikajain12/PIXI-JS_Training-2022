@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.3/browser/pixi.js"
+      integrity="sha512-7bGcZdDUfAUu6ckSHcxddjAaHnVzNC6tfLG9enQ9iwUbODAsif/tRliERmGCE74sGJAT0mBJRpGxjPZpuFCwLw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <script>
+      const app = new PIXI.Application({
+        width: 800,
+        height: 600,
+      });
+      document.body.appendChild(app.view);
+
+      app.stop();
+
+      //load resources
+      app.loader.add("spritesheet", "assets/monster.json").load(onAssetsLoad);
+
+      let aliens = [];
+      let aliensFrame = ["toy1.png", "toy2.png", "toy3.png", "toy4.png"];
+
+      let count = 0;
+
+      const aliensContainer = new PIXI.Container();
+      aliensContainer.x = 400;
+      aliensContainer.y = 300;
+
+      app.stage.interactive = true;
+      app.stage.buttonMode = true;
+      app.stage.addChild(aliensContainer);
+
+      function onAssetsLoad() {
+        for (let i = 0; i < 100; i++) {
+           const frameName= aliens[i%4];
+           const sprite = PIXI.Sprite.from(frameName);
+           sprite.tint = Math.random()* 0xFFFFFF;
+           sprite.x= Math.random()  * 800 -400;
+           sprite.y= Math.random() * 600-300;
+           sprite.anchor.set(0.5);
+           aliens.push(sprite);
+           aliensContainer.addChild(sprite);
+            
+        }
+        app.start();
+    }
+
+        app.stage.on('pointertap',onclick);
+        function onclick(){
+            aliensContainer.cacheAsBitmap = !aliensContainer.cacheAsBitmap;
+
+        }
+        app.ticker.add(()=>{
+            for (let i = 0; i < 100; i++) {
+                const alien = aliens[i];
+                // alien.rotation+=0.1;
+                
+            }
+            count+=0.01;
+            aliensContainer.scale.x= Math.sin(count);
+            aliensContainer.scale.y= Math.sin(count);
+            aliensContainer.rotation+=0.01;
+        });
+
+
+    </script>
+  </body>
+</html>

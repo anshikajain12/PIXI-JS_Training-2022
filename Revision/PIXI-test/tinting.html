@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.3/browser/pixi.js"
+      integrity="sha512-7bGcZdDUfAUu6ckSHcxddjAaHnVzNC6tfLG9enQ9iwUbODAsif/tRliERmGCE74sGJAT0mBJRpGxjPZpuFCwLw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <script>
+      const app = new PIXI.Application({
+        width: 800,
+        height: 600,
+      });
+      document.body.appendChild(app.view);
+
+      const aliens = [];
+      const totalDudes = 20;
+
+      for (let i = 0; i < totalDudes; i++) {
+        const sprite = PIXI.Sprite.from("toy.png");
+        sprite.anchor.set(0.5);
+        sprite.scale.set(0.8 + Math.random() * 0.3);
+        sprite.x = Math.random() * app.screen.width;
+        sprite.y = Math.random() * app.screen.height;
+        sprite.tint = Math.random() * 0xffffff;
+        sprite.width = 150;
+        sprite.height = 100;
+        sprite.direction = Math.random() * Math.PI * 2;
+        sprite.turningSpeed = Math.random() - 0.8;
+        sprite.speed = 2 + Math.random() * 2;
+        sprite.interactive=true;
+        aliens.push(sprite);
+        app.stage.addChild(sprite);
+      }
+console.log(aliens)
+      const dudeBoundsPadding = 100;
+      const dudeBounds = new PIXI.Rectangle(
+        -dudeBoundsPadding,
+        -dudeBoundsPadding,
+        app.screen.width + dudeBoundsPadding * 2,
+        app.screen.height + dudeBoundsPadding * 2
+      );
+      app.ticker.add(() => {
+        // iterate through the dudes and update their position
+        for (let i = 0; i < aliens.length; i++) {
+          const sprite = aliens[i];
+          sprite.direction += sprite.turningSpeed * 0.01;
+          sprite.x += Math.sin(sprite.direction) * sprite.speed;
+          sprite.y += Math.cos(sprite.direction) * sprite.speed;
+          sprite.rotation = -sprite.direction - Math.PI / 2;
+
+          // wrap the dudes by testing their bounds...
+          if (sprite.x < dudeBounds.x) {
+            sprite.x += dudeBounds.width;
+          } else if (sprite.x > dudeBounds.x + dudeBounds.width) {
+            sprite.x -= dudeBounds.width;
+          }
+
+          if (sprite.y < dudeBounds.y) {
+            sprite.y += dudeBounds.height;
+          } else if (sprite.y > dudeBounds.y + dudeBounds.height) {
+            sprite.y -= dudeBounds.height;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
